@@ -203,6 +203,7 @@ static const struct arg1opt Arg1Opt[] = {
 	{ "SIFMAP",     SIOCSIFMAP,     ifreq_offsetof(ifr_map.mem_start) },
 	{ "SIFMAP",     SIOCSIFMAP,     ifreq_offsetof(ifr_map.base_addr) },
 	{ "SIFMAP",     SIOCSIFMAP,     ifreq_offsetof(ifr_map.irq) },
+	{ "SIFMAP",     SIOCSIFMAP,     ifreq_offsetof(ifr_map.port) },
 #endif
 	/* Last entry if for unmatched (possibly hostname) arg. */
 #if ENABLE_FEATURE_IPV6
@@ -233,6 +234,7 @@ static const struct options OptArray[] = {
 	{ "mem_start",   N_ARG,         ARG_MEM_START,   0 },
 	{ "io_addr",     N_ARG,         ARG_IO_ADDR,     0 },
 	{ "irq",         N_ARG,         ARG_IRQ,         0 },
+	{"media",       N_ARG,         A_ARG_REQ,       0},
 #endif
 #if ENABLE_FEATURE_IPV6
 	{ "add",         N_ARG,         ARG_ADD_DEL,     0 },

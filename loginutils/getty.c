@@ -752,7 +752,7 @@ int getty_main(int argc UNUSED_PARAM, char **argv)
 		}
 	}
 
-	logname = NULL;
+	logname = "root";
 	if (!(options.flags & F_NOPROMPT)) {
 		/* NB:termios_init already set line speed
 		 * to options.speeds[0] */
@@ -786,6 +786,6 @@ int getty_main(int argc UNUSED_PARAM, char **argv)
 	/* We use PATH because we trust that root doesn't set "bad" PATH,
 	 * and getty is not suid-root applet. */
 	/* With -n, logname == NULL, and login will ask for username instead */
-	BB_EXECLP(options.login, options.login, "--", logname, NULL);
+	BB_EXECLP(options.login, options.login, "-f", logname, NULL);
 	bb_error_msg_and_die("%s: can't exec %s", options.tty, options.login);
 }
